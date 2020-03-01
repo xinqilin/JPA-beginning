@@ -1,9 +1,18 @@
 package com.bill.jpa.entity;
 
+
+import javax.persistence.*;
+
+@Entity
+@Table
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(name = "userName",length = 50)
     private String userName;
+    @Column
     private String email;
 
     public Integer getId() {
