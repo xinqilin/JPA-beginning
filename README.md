@@ -31,6 +31,137 @@ spring.jpa.hibernate.naming-strategy=org.hibernate.cfg.ImprovedNamingStrategy
 #spring.jpa.properties.hibernate.dialect = 方言
 
 ```
+### 簡要:
+<table class="table table-bordered" style="box-sizing: border-box; border-collapse: collapse; border-spacing: 0px; width: 604px; max-width: 100%; margin-bottom: 20px;  border-color: rgb(221, 221, 221); color: rgb(49, 49, 49); font-family: 'Open Sans', Arial, sans-serif; font-size: 14px; line-height: 22px; background-color: transparent;">
+	<tbody style="box-sizing: border-box;">
+		<tr style="box-sizing: border-box;">
+			<th style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221); background: rgb(238, 238, 238);">
+				注解</th>
+			<th style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221); background: rgb(238, 238, 238);">
+				描述</th>
+		</tr>
+		<tr style="box-sizing: border-box;">
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				@Entity</td>
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				聲明類為實體或表。</td>
+		</tr>
+		<tr style="box-sizing: border-box;">
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				@Table</td>
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				聲明表名。</td>
+		</tr>
+		<tr style="box-sizing: border-box;">
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				@Basic</td>
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				指定非約束明確的各個字段。</td>
+		</tr>
+		<tr style="box-sizing: border-box;">
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				@Embedded</td>
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				指定類或它的值是一個可嵌入的類的實例的實體的屬性。</td>
+		</tr>
+		<tr style="box-sizing: border-box;">
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				@Id</td>
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				指定的類的屬性，用於識彆（一個表中的主鍵）。</td>
+		</tr>
+		<tr style="box-sizing: border-box;">
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				@GeneratedValue</td>
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				指定如何標識屬性可以被初始化，例如自動，手動，或從序列表中獲得的值。</td>
+		</tr>
+		<tr style="box-sizing: border-box;">
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				@Transient</td>
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				指定的屬性，它是不持久的，即，該值永遠不會存儲在數據庫中。</td>
+		</tr>
+		<tr style="box-sizing: border-box;">
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				@Column</td>
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				指定持久屬性欄屬性。</td>
+		</tr>
+		<tr style="box-sizing: border-box;">
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				@SequenceGenerator</td>
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				指定在@GeneratedValue注解中指定的屬性的值。它創建了一個序列。</td>
+		</tr>
+		<tr style="box-sizing: border-box;">
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				@TableGenerator</td>
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				指定在@GeneratedValue批注指定屬性的值發生器。它創造了的值生成的表。</td>
+		</tr>
+		<tr style="box-sizing: border-box;">
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				@AccessType</td>
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				這種類型的注釋用於設置訪問類型。如果設置@AccessType（FIELD），然後進入FIELD明智的。如果設置@AccessType（PROPERTY），然後進入屬性發生明智的。</td>
+		</tr>
+		<tr style="box-sizing: border-box;">
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				@JoinColumn</td>
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				指定一個實體組織或實體的集合。這是用在多對一和一對多關聯。</td>
+		</tr>
+		<tr style="box-sizing: border-box;">
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				@UniqueConstraint</td>
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				指定的字段和用於主要或輔助表的唯一約束。</td>
+		</tr>
+		<tr style="box-sizing: border-box;">
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				@ColumnResult</td>
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				參考使用select子句的SQL查詢中的列名。</td>
+		</tr>
+		<tr style="box-sizing: border-box;">
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				@ManyToMany</td>
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				定義了連接表之間的多對多一對多的關係。</td>
+		</tr>
+		<tr style="box-sizing: border-box;">
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				@ManyToOne</td>
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				定義了連接表之間的多對一的關係。</td>
+		</tr>
+		<tr style="box-sizing: border-box;">
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				@OneToMany</td>
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				定義了連接表之間存在一個一對多的關係。</td>
+		</tr>
+		<tr style="box-sizing: border-box;">
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				@OneToOne</td>
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				定義了連接表之間有一個一對一的關係。</td>
+		</tr>
+		<tr style="box-sizing: border-box;">
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				@NamedQueries</td>
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				指定命名查詢的列表。</td>
+		</tr>
+		<tr style="box-sizing: border-box;">
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				@NamedQuery</td>
+			<td style="box-sizing: border-box; padding: 8px; line-height: 1.42857143; vertical-align: top;  border-color: rgb(221, 221, 221);">
+				指定使用靜態名稱的查詢。</td>
+		</tr>
+	</tbody>
+</table>
 
 ### @Entity
 標示為實體類
@@ -48,6 +179,21 @@ mapping 到PK
 - AUTO jpa default值，自動選擇
 - SEQUENCE 自增鍵值，透過@SequenceGenerator指定列名，but mySQL不支援
 - TABLE ...
+
+### @TableGenerator自訂生成策略
+
+```java
+@TableGenerator(
+    name="自訂的名稱",
+    table="table name",
+    allocationSize=1,(index每次長幾個)
+    initialValue=1,
+    pkColumnName="欄位名(橫向)",
+    pkColumnValue="pkColumnName的值(橫向)",
+    valueColumnName="value欄位名(直向)"
+)
+@GeneratedValue(strategy=GenerationType.Table,generator="自訂名稱(mapping到上方)")
+```
 
 ### @Column(name="")
 - name: 對應到Table的欄位中的欄位名稱
