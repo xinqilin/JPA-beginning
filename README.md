@@ -252,3 +252,37 @@ public String getInfo(){
 
 
 ```
+
+
+### 單向多對一 @ManyToOne
+
+orders-person
+  多  -  一
+```java
+
+@JoinColumn(name="person_id")  //mapping外鍵
+@ManyToOne
+public Person getPerson(){
+
+}
+
+//可搭配@ManyToOne(fetch=FetchType.LAZY) 使用
+```
+
+### 單向一對多 @OneToMany
+
+
+```java
+
+@JoinColumn(name="person_id")
+@OneToMany
+public Person getPerson(){
+
+}
+
+//可搭配@OneToMany(fetch=FetchType.EAGER,cascade={Cascade.Type.REMOVE}) 
+//cascade={Cascade.Type.REMOVE} 刪除[一]時， 多也會被刪除
+
+```
+
+### 雙向多對一
