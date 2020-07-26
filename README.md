@@ -285,7 +285,7 @@ public Person getPerson(){
 
 ```
 
-### 雙向一對一
+### 雙向一對一@OneToOne
 
 - 需指定 mappedBy
 - ex:@OneToOne(mappedBy="XXX")
@@ -327,5 +327,27 @@ public Dept getDept(){
 }
 }
 
+
+```
+
+
+### 雙向多對多@ManyToMany
+
+```java
+需有中間表 
+@JoinTable(
+	name="中間表",
+	JoinColumns={@JoinColumn(name="Category_id(自己這張表的主見當成別人的外建要叫甚麼名字)",referencedColumnName="Category_id(自己帳張表的PK)")},
+	inverseJoinColumns={@JoinColumn(name="Item_id(對方錶要叫甚麼名字)",referencedColumnName="Item_id")}
+	)
+
+另一張要寫
+@ManyToMany(mappedBy="關連表的set東西(categories)")
+
+class Item{
+	private Iteger id;
+	private String name;
+	private Set<Category> categories=new HashSet<>();
+}
 
 ```
