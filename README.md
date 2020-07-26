@@ -285,4 +285,47 @@ public Person getPerson(){
 
 ```
 
-### 雙向多對一
+### 雙向一對一
+
+- 需指定 mappedBy
+- ex:@OneToOne(mappedBy="XXX")
+
+```java 
+
+java bean
+
+class Dept{
+	private String deptId;
+	private String name;
+	private Manager mgr;
+}
+
+//getter...setter...
+
+
+@JoinColumn(name="MGR_ID",unique=true)
+@OneToOne
+public Manager getMgr(){
+	return mgr;
+}
+
+```
+
+```java
+java bean
+
+class Manager{
+	private String MGR_ID;
+	private String name;
+	private Dept dept;
+
+//getter...setter...
+
+@OneToOne(mappedBy="mgr")
+public Dept getDept(){
+	return dept;
+}
+}
+
+
+```
