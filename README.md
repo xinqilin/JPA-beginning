@@ -31,6 +31,19 @@ spring.jpa.hibernate.naming-strategy=org.hibernate.cfg.ImprovedNamingStrategy
 #spring.jpa.properties.hibernate.dialect = 方言
 
 ```
+
+### 參考配置
+
+```
+spring.datasource.url = jdbc:mysql://localhost:3306/sample?useSSL=false&serverTimezone=GMT%2B8
+spring.datasource.username = user的帳號
+spring.datasource.password = user的密碼
+spring.jpa.show-sql = true
+spring.jpa.hibernate.ddl-auto = update
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL8Dialect
+
+```
+
 ### 簡要:
 <table class="table table-bordered" style="box-sizing: border-box; border-collapse: collapse; border-spacing: 0px; width: 604px; max-width: 100%; margin-bottom: 20px;  border-color: rgb(221, 221, 221); color: rgb(49, 49, 49); font-family: 'Open Sans', Arial, sans-serif; font-size: 14px; line-height: 22px; background-color: transparent;">
 	<tbody style="box-sizing: border-box;">
@@ -162,6 +175,64 @@ spring.jpa.hibernate.naming-strategy=org.hibernate.cfg.ImprovedNamingStrategy
 		</tr>
 	</tbody>
 </table>
+
+
+### CascadeType
+
+是否連動
+```
+CascadeType.PERSIST	在儲存時一併儲存 被參考的物件。
+CascadeType.MERGE	在合併修改時一併 合併修改被參考的物件。
+CascadeType.REMOVE	在移除時一併移除 被參考的物件。
+CascadeType.REFRESH	在更新時一併更新 被參考的物件。
+CascadeType.ALL		無論儲存、合併、 更新或移除，一併對被參考物件作出對應動作。
+
+```
+
+
+### FetchType
+需不需要馬上更新
+
+```
+@Basic		FetchType.EARGE
+@OneToOne	FetchType.EARGE
+@ManyToOne	FetchType.EARGE
+@OneToMany	FetchType.LAZY
+@ManyToMany	FetchType.LAZY
+```
+
+```java
+public class Student {
+    @ManyToMany(cascade=CascadeType.PERSIST,fetch=FetchType.LAZY)
+    private Set<Course> courses = new HashSet<>();
+    //其他代码略。
+}
+
+```
+
+```
+可以看到，我们在上面的代码中给了Student对Course进行级联保存（cascade=CascadeType.PERSIST）的权限。此时，若Student实体持有的Course实体在数据库中不存在时，保存该Student时，系统将自动在Course实体对应的数据库中保存这条Course数据。而如果没有这个权限，则无法保存该Course数据。
+
+CascadeType.REMOVE
+Cascade remove operation，级联删除操作。
+删除当前实体时，与它有映射关系的实体也会跟着被删除。
+CascadeType.MERGE
+Cascade merge operation，级联更新（合并）操作。
+当Student中的数据改变，会相应地更新Course中的数据。
+CascadeType.DETACH
+Cascade detach operation，级联脱管/游离操作。
+如果你要删除一个实体，但是它有外键无法删除，你就需要这个级联权限了。它会撤销所有相关的外键关联。
+CascadeType.REFRESH
+Cascade refresh operation，级联刷新操作。
+假设场景 有一个订单,订单里面关联了许多商品,这个订单可以被很多人操作,那么这个时候A对此订单和关联的商品进行了修改,与此同时,B也进行了相同的操作,但是B先一步比A保存了数据,那么当A保存数据的时候,就需要先刷新订单信息及关联的商品信息后,再将订单及商品保存。
+
+參考:
+作者：三汪
+链接：https://www.jianshu.com/p/e8caafce5445
+来源：简书
+
+
+```
 
 ### @Entity
 標示為實體類
